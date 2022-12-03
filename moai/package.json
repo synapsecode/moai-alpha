@@ -1,0 +1,26 @@
+{
+	"name": "set-stack",
+	"version": "1.0.0",
+	"description": "A Simple Template to Develop Webapps using the SET Stack (Svelte Express Tailwind)",
+	"author": "Manas Hejmadi",
+	"license": "ISC",
+	"dependencies": {
+		"concurrently": "^7.2.2",
+		"cors": "^2.8.5",
+		"express": "^4.18.1"
+	},
+	"scripts": {
+		"deps": "yarn && cd client && yarn",
+		"build": "cd client && yarn build",
+		"app": "concurrently \"node index.js\" \"cd client && yarn start\"",
+		"dev": "concurrently \"nodemon index.js\" \"cd client && yarn dev\"",
+		"prod": "APPMODE='PROD' node index.js",
+		"build-prod": "yarn build && yarn prod",
+		"vercel-deploy": "yarn build && vercel",
+		"vercel-deploy-prod": "yarn build && vercel --prod"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.6"
+	},
+	"main": "index.js"
+}
